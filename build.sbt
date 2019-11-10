@@ -24,7 +24,7 @@ lazy val kafkaStreams = (project in file("kafka-streams"))
     name := "kafka-streams",
     settings,
     assemblySettings,
-    libraryDependencies ++= commonDependencies
+    libraryDependencies ++= (commonDependencies ++ circeDependency)
   )
   .dependsOn(
     common % "compile -> compile; test -> test"
@@ -44,6 +44,14 @@ lazy val dependencies =
     val kafkaStreams = "org.apache.kafka"           %% "kafka-streams-scala" % kafkaStreamsV
     val slf4j        = "org.slf4j"                  % "jcl-over-slf4j"       % slf4jV
   }
+
+val circeVersion = "0.11.1"
+
+lazy val circeDependency = Seq(
+  "io.circe" %% "circe-core",
+  "io.circe" %% "circe-generic",
+  "io.circe" %% "circe-parser"
+).map(_ % circeVersion)
 
 lazy val commonDependencies = Seq(
   dependencies.scalaLogging,

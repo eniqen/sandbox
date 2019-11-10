@@ -6,6 +6,7 @@ package com.github.eniqen.kafka
 object Config {
   val BootstrapServers = "localhost:9092"
   val AppId            = "word-count-app"
+  val BankAppId        = "bank-transactions-app"
   val OffsEarliest     = "earliest"
 
 
