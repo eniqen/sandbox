@@ -12,6 +12,8 @@ object Config {
   abstract class Topic(val name: String)
 
   object Topic {
+    case object BankBalanceIn extends Topic("bank-balance-input")
+    case object BankBalanceOut extends Topic("bank-balance-out")
     case object WordCountIn extends Topic("word-count-input")
     case object WordCountOut extends Topic("word-count-output")
     case object FavouriteColorIn extends Topic("favourite-color-in")

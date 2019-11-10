@@ -34,7 +34,7 @@ class FavouriteColorApp {
       .filter((_, v) => v.contains(SEPARATOR))
       .selectKey((_, v) => v.split(SEPARATOR).head.toLowerCase.trim)
       .mapValues(_.split(SEPARATOR).tail.head.toLowerCase.trim)
-      .filter((_, v) => supportedColors(v))
+      .filter{case (_, v: String) => supportedColors(v) }
 
     usersAndColorsStream.to(Config.Topic.FavouriteColorUsersColors.name)
 
