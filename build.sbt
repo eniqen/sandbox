@@ -30,6 +30,17 @@ lazy val kafkaStreams = (project in file("kafka-streams"))
     common % "compile -> compile; test -> test"
   )
 
+lazy val shapeless = project
+  .settings(
+    name := "shapeless",
+    settings,
+    libraryDependencies ++= commonDependencies
+  )
+  .disablePlugins(AssemblyPlugin)
+  .dependsOn(
+    common % "compile -> compile; test -> test"
+  )
+
 lazy val dependencies =
   new {
     val scalaLoggingV = "3.7.2"
@@ -37,12 +48,14 @@ lazy val dependencies =
     val scalatestV    = "3.0.4"
     val scalacheckV   = "1.13.5"
     val kafkaStreamsV = "2.3.1"
+    val shapelessV    = "2.3.3"
 
     val scalaLogging = "com.typesafe.scala-logging" %% "scala-logging"       % scalaLoggingV
     val scalatest    = "org.scalatest"              %% "scalatest"           % scalatestV
     val scalacheck   = "org.scalacheck"             %% "scalacheck"          % scalacheckV
     val kafkaStreams = "org.apache.kafka"           %% "kafka-streams-scala" % kafkaStreamsV
     val slf4j        = "org.slf4j"                  % "jcl-over-slf4j"       % slf4jV
+    val shapeless    = "com.chuusai"                % "shapeless"            % shapelessV
   }
 
 val circeVersion = "0.11.1"
@@ -57,6 +70,7 @@ lazy val commonDependencies = Seq(
   dependencies.scalaLogging,
   dependencies.slf4j,
   dependencies.kafkaStreams,
+  dependencies.shapeless,
   dependencies.scalatest  % "test",
   dependencies.scalacheck % "test"
 )
