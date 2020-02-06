@@ -30,6 +30,17 @@ lazy val kafkaStreams = (project in file("kafka-streams"))
     common % "compile -> compile; test -> test"
   )
 
+lazy val fs2 = (project in file("fs2"))
+  .settings(
+    name := "fs2",
+    settings,
+    assemblySettings,
+    libraryDependencies ++= (commonDependencies ++ circeDependency ++ fs2Dependency)
+  )
+  .dependsOn(
+    common % "compile -> compile; test -> test"
+  )
+
 lazy val shapeless = project
   .settings(
     name := "shapeless",
@@ -40,6 +51,7 @@ lazy val shapeless = project
   .dependsOn(
     common % "compile -> compile; test -> test"
   )
+
 
 lazy val dependencies =
   new {
@@ -55,16 +67,22 @@ lazy val dependencies =
     val scalacheck   = "org.scalacheck"             %% "scalacheck"          % scalacheckV
     val kafkaStreams = "org.apache.kafka"           %% "kafka-streams-scala" % kafkaStreamsV
     val slf4j        = "org.slf4j"                  % "jcl-over-slf4j"       % slf4jV
-    val shapeless    = "com.chuusai"                % "shapeless"            % shapelessV
+//    val shapeless    = "com.chuusai"                % "shapeless"            % shapelessV
   }
 
 val circeVersion = "0.11.1"
+val fs2V         = "2.2.1"
 
 lazy val circeDependency = Seq(
   "io.circe" %% "circe-core",
   "io.circe" %% "circe-generic",
   "io.circe" %% "circe-parser"
 ).map(_ % circeVersion)
+
+lazy val fs2Dependency = Seq(
+  "co.fs2" %% "fs2-core",
+  "co.fs2" %% "fs2-io"
+).map(_ % fs2V)
 
 lazy val commonDependencies = Seq(
   dependencies.scalaLogging,
