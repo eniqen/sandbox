@@ -52,6 +52,11 @@ lazy val shapeless = project
     common % "compile -> compile; test -> test"
   )
 
+lazy val algo = project.settings(
+  name := "algo",
+  settings,
+  libraryDependencies ++= commonDependencies
+)
 
 lazy val dependencies =
   new {
@@ -88,7 +93,7 @@ lazy val commonDependencies = Seq(
   dependencies.scalaLogging,
   dependencies.slf4j,
   dependencies.kafkaStreams,
-  dependencies.shapeless,
+//  dependencies.shapeless,
   dependencies.scalatest  % "test",
   dependencies.scalacheck % "test"
 )
