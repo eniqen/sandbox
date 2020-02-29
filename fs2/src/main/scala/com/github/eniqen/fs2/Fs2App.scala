@@ -28,6 +28,12 @@ object Fs2App  extends App {
 
   object Name {
     implicit def eqName(implicit eq: Eq[String]): Eq[Name] = Eq.instance[Name] {case (l, r) => eq.eqv(l.v, r.v)}
+
+    object syntax {
+      implicit final class NameOps(private val self: Name) extends AnyVal {
+        def map(fn: String => String): Name = Name(fn(self.v))
+      }
+    }
   }
 
   trait Ctx[+S <: System] {
@@ -89,11 +95,37 @@ object Fs2App  extends App {
           delay = 3.seconds
         )
 
-        in.through(enrich).changes
+        in.through(enrich)
+          .changes
+          .through(broadcast)
+          .handleErrorWith(err => Stream.eval(Sync[F].delay("Error while processing")) >> Stream.raiseError(err))
     }.onFinalize(ref.get >>= (result => Sync[F].delay(println(s"Processed ${result}")))).void
 
 
   private def enrich[F[_]: Sync, A]: Pipe[F, A, A] = ???
+
+  private def broadcast[F[_]: Concurrent: Timer]: Pipe[F, Name, Name] =
+    _.broadcast
+      .take(2)
+      .foldMap(List(_))
+      .flatMap {
+        case List(s1, s2) =>
+          import Name.syntax._
+          def isOdd: Name => Boolean = _.v.length % 2 == 0
+
+          val odd: Stream[F, Name] =
+            s1.filter(isOdd)
+              .chunks
+              .flatMap(ch => Stream.chunk(ch.map(_.map(_ + "odd"))))
+
+          val even: Stream[F, Name] =
+            s2.filter(!isOdd(_))
+            .chunks
+            .flatMap(ch => Stream.chunk(ch.map(_.map(_ + "even"))))
+
+          odd merge even
+      }
+
   private def restartOnError[F[_]](
     ids: Id,
     fn: Id => Stream[F, Name],
