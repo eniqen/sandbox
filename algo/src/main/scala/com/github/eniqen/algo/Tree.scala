@@ -1,5 +1,6 @@
 package com.github.eniqen.algo
 import scala.annotation.tailrec
+import scala.collection.mutable
 
 /**
  * @author Mikhail Nemenko {@literal <nemenkoma@gmail.com>}
@@ -50,7 +51,27 @@ object Tree extends App {
     go(tree, result = false)
   }
 
-  def breadthSearch[T](tree: Tree[T]) = ???
+  def breadthSearch[T](tree: Tree[T], value: T): Boolean = {
+    @tailrec
+    def go(queue: mutable.Queue[Tree[T]], result: Boolean): Boolean =
+      if (result || queue.isEmpty) result
+      else
+      queue.dequeue() match {
+        case Empty           => go(queue, result)
+        case Leaf(v)         => go(queue, value == v)
+        case Branch(v, l, r) =>
+            if(v == result)
+              go(queue, result = true)
+            else  {
+              queue.enqueue(l, r)
+              go(queue, result = false)
+            }
+    }
+
+    val queue = mutable.Queue[Tree[T]](tree)
+    go(queue, result = false)
+  }
 
   println(deepSearch(tree, 13))
+  println(breadthSearch(tree, 13))
 }
