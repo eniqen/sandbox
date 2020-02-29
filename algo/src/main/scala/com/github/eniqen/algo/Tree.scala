@@ -51,6 +51,20 @@ object Tree extends App {
     go(tree, result = false)
   }
 
+  def deepSearchTailrec[T](tree: Tree[T], value: T): Boolean = {
+    @tailrec
+    def go(stack: List[Tree[T]], result: Boolean): Boolean =
+      if(result || tree.isEmpty) result
+    else
+        stack.head match {
+        case Empty                  => go(stack.tail, result)
+        case Leaf(v)                => go(stack.tail, v == value)
+        case Branch(v, left, right) => go(left :: (right :: stack.tail), v == value)
+      }
+
+    go(tree :: Nil, result = false)
+  }
+
   def breadthSearch[T](tree: Tree[T], value: T): Boolean = {
     @tailrec
     def go(queue: mutable.Queue[Tree[T]], result: Boolean): Boolean =
@@ -74,4 +88,5 @@ object Tree extends App {
 
   println(deepSearch(tree, 13))
   println(breadthSearch(tree, 13))
+  println(deepSearchTailrec(tree, 13))
 }
