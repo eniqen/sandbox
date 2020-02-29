@@ -43,7 +43,7 @@ object QuickSort extends App {
         while(Ordering[T].compare(array(end), pivot) > 0) end -= 1
 
         if(start <= end) {
-          swap(start, end)(array)
+          swap(start, end)
           start += 1
           end -= 1
         }
