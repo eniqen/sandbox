@@ -2,6 +2,7 @@ package com.github.eniqen.algo;
 
 
 import java.math.BigInteger;
+import java.util.Scanner;
 
 /**
  * @author Mikhail Nemenko {@literal <nemenkoma@gmail.com>}
@@ -24,7 +25,7 @@ public class Fibonacci {
 	}
 
 	private static BigInteger fibOptimised(int n) {
-		if (n >= 2) {
+		if (n >= 2 || n <= 10000000) {
 			BigInteger[] memo = new BigInteger[]{ BigInteger.ZERO, BigInteger.ONE };
 			int index = 2;
 			while (n > index) {
