@@ -1,4 +1,4 @@
-package com.github.eniqen.algo.hakerrank;
+package com.github.eniqen.algo.hakerrank.arrays;
 
 /**
  * @author Mikhail Nemenko {@literal <nemenkoma@gmail.com>}
