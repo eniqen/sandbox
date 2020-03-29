@@ -18,7 +18,8 @@ public class FraudulentActivity {
 
 		System.out.println(arr.length);
 //		System.out.println(notificationCount(expenditure, 5));
-		System.out.println(notCount(arr, 40001));
+//		System.out.println(notCount(arr, 40001));
+		System.out.println(fastActivityNotifications(expenditure3, 3));
 }
 
 
@@ -106,5 +107,36 @@ public class FraudulentActivity {
 		return d % 2 == 0
 			   ? (double) (arr[index - 1] + arr[index]) / 2
 			   : arr[index];
+	}
+
+	static int fastActivityNotifications(int[] expenditure, int d) {
+		int count = 0;
+
+		final List<Integer> transaction = new ArrayList<>(d);
+		for (int i = 0; i < d; i++) transaction.add(expenditure[i]);
+		Collections.sort(transaction);
+
+		for (int i = d; i < expenditure.length; i++) {
+			int toDelete = expenditure[i - d];
+			int toInsert = expenditure[i];
+
+			double median = median(transaction);
+
+			if(toInsert >= median * 2) count++;
+
+			int removeIndex = Collections.binarySearch(transaction, toDelete);
+			transaction.remove(removeIndex);
+			int indexIndex = Collections.binarySearch(transaction, toInsert);
+			transaction.add(indexIndex >= 0 ? indexIndex : ~indexIndex, toInsert);
+		}
+
+
+		return count;
+	}
+	private static double median(List<Integer> transactions) {
+		int middle = transactions.size() / 2;
+		return transactions.size() % 2 == 0
+				? (transactions.get(middle - 1) + transactions.get(middle)) / 2.0
+			    : transactions.get(middle);
 	}
 }
