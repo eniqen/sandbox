@@ -9,16 +9,11 @@ public class AlternativeCharacter {
 		System.out.println(alternatingCharacters(line));
 	}
 
-	static int alternatingCharacters(String s) {
+	private static int alternatingCharacters(String s) {
 		int count = 0;
-		if(s.length() == 1) return 1;
-		int flag = (int) s.charAt(0) - 'A';
-		for(int i = 1; i < s.length(); i++) {
-			int currentFlag = s.charAt(i) - 'A';
-			if(flag == currentFlag) {
+		for(int i = 0; i < s.length() - 1; i++) {
+			if(s.charAt(i) == s.charAt(i + 1)) {
 				count++;
-			} else {
-				flag = currentFlag;
 			}
 		}
 		return count;
