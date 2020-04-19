@@ -30,4 +30,18 @@ public class MoveZeroes {
 			if(current != 0)  index++;
 		}
 	}
+
+	static void anotherMoveZeroes(int[] nums) {
+		int anchor = 0;
+		int index = 0;
+		while(index < nums.length) {
+			int current = nums[index];
+			if (current != 0) {
+				nums[index] = nums[anchor];
+				nums[anchor] = current;
+				anchor++;
+			}
+			index++;
+		}
+	}
 }
