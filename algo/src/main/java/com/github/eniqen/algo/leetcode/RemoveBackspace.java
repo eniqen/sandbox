@@ -1,7 +1,5 @@
 package com.github.eniqen.algo.leetcode;
 
-import java.util.Arrays;
-
 /**
  * @author Mikhail Nemenko {@literal <nemenkoma@gmail.com>}
  */
@@ -34,5 +32,5 @@ public class RemoveBackspace {
               }
           }
       return sb.toString();
-          }
+	}
 }

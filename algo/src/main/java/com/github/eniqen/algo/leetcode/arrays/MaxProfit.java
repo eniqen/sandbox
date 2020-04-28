@@ -1,6 +1,4 @@
-package com.github.eniqen.algo.leetcode;
-
-import java.util.Arrays;
+package com.github.eniqen.algo.leetcode.arrays;
 
 /**
  * @author Mikhail Nemenko {@literal <nemenkoma@gmail.com>}

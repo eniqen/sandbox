@@ -1,4 +1,4 @@
-package com.github.eniqen.algo.leetcode;
+package com.github.eniqen.algo.leetcode.arrays;
 
 /**
  * @author Mikhail Nemenko {@literal <nemenkoma@gmail.com>}
