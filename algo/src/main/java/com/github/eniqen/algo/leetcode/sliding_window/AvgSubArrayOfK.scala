@@ -10,6 +10,7 @@ object AvgSubArrayOfK extends App {
 
   println(data.sliding(k, 1).map(_.sum.toDouble / k).mkString(", "))
   println(findAvg(data, k).mkString(", "))
+  println(findAvgImproved(data, k).mkString(", "))
 
   def findAvg(data: Array[Int], k: Int): Array[Double] = {
     val result = Array.fill(data.length - k + 1)(0d)
@@ -23,5 +24,21 @@ object AvgSubArrayOfK extends App {
     var sum = 0d
     for(i <- from until to) sum += arr(i)
     sum / (to - from)
+  }
+
+  def findAvgImproved(data: Array[Int], k: Int): Array[Double] = {
+    val result = Array.fill(data.length - k + 1)(0d)
+    var sum = 0d
+    var start: Int = 0
+
+    for(end <- data.indices) {
+      sum += data(end)
+      if(end >= k - 1) {
+        result(start) = sum / k
+        sum -= data(start)
+        start += 1
+      }
+    }
+    result
   }
 }
