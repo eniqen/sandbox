@@ -1,4 +1,4 @@
-package com.github.eniqen.algo.leetcode.sliding_window
+package com.github.eniqen.algo.sliding_window
 
 /**
  * @author Mikhail Nemenko {@literal <nemenkoma@gmail.com>}
@@ -33,10 +33,10 @@ object AvgSubArrayOfK extends App {
 
     for(end <- data.indices) {
       sum += data(end)
-      if(end >= k - 1) {
-        result(start) = sum / k
-        sum -= data(start)
-        start += 1
+      if (end >= k - 1) {
+          result(start) = sum / k
+          sum -= data(start)
+          start += 1
       }
     }
     result
