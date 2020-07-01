@@ -7,7 +7,6 @@ object LongestSubstringWithKDistinctCharacters extends App {
   val s = "cbbebi"
   val k = 3
 
-
   def findLength(k: Int, s: String): Int = {
     var maxLength = 0
     var start = 0
