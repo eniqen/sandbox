@@ -4,9 +4,9 @@ package com.github.eniqen.algo.leetcode;
  * @author Mikhail Nemenko {@literal <nemenkoma@gmail.com>}
  */
 public class TreeNode {
-	int val;
-	TreeNode left;
-	TreeNode right;
+	public int val;
+	public TreeNode left;
+	public TreeNode right;
 
 	private TreeNode() {}
 
@@ -18,11 +18,11 @@ public class TreeNode {
 		this.right = right;
 	}
 
-	static TreeNode of(int val, TreeNode left, TreeNode right) {
+	public static TreeNode of(int val, TreeNode left, TreeNode right) {
 		return new TreeNode(val, left, right);
 	}
 
-	static TreeNode of(int val) {
+	public static TreeNode of(int val) {
 		return of(val, null, null);
 	}
 }
