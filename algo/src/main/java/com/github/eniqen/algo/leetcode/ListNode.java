@@ -19,4 +19,15 @@ public class ListNode {
 	static ListNode of(int val, ListNode next) {
 		return new ListNode(val, next);
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		ListNode curr = this;
+		while(curr != null) {
+			sb.append("[").append(curr.val).append("]");
+			curr = curr.next;
+		}
+		return sb.toString();
+	}
 }
