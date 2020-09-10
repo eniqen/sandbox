@@ -8,9 +8,11 @@ import com.github.eniqen.algo.leetcode.ListNode;
 public class LinkedListPolindrome {
 	public static void main(String[] args) {
 		ListNode node = ListNode.of(1, ListNode.of(2, ListNode.of(1)));
-		ListNode node2 = ListNode.of(1, ListNode.of(2, ListNode.of(3)));
+		ListNode node2 = ListNode.of(1, ListNode.of(2, ListNode.of(2, ListNode.of(1))));
+		ListNode node3 = ListNode.of(1, ListNode.of(2, ListNode.of(3)));
 		System.out.println(isPalindrome(node));
 		System.out.println(isPalindrome(node2));
+		System.out.println(isPalindrome(node3));
 	}
 
 	private static boolean isPalindrome(ListNode head) {

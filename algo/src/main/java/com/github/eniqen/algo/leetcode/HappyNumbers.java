@@ -10,6 +10,8 @@ public class HappyNumbers {
 	public static void main(String[] args) {
 		System.out.println(isHappy(2));
 		System.out.println(isHappy(19));
+		System.out.println(isHappy(12));
+		System.out.println(isHappy(23));
 	}
 
 	static boolean isHappy(int n) {
