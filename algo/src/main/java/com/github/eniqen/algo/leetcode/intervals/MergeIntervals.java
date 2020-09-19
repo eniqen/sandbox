@@ -2,6 +2,7 @@ package com.github.eniqen.algo.leetcode.intervals;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -10,14 +11,21 @@ import java.util.List;
 public class MergeIntervals {
 	public static void main(String[] args) {
 
+		int[][] intervals = new int[][] {
+				new int[]{1,3},
+				new int[]{2,6},
+				new int[]{8,10},
+				new int[]{15,18}
+		};
+		System.out.println(Arrays.deepToString(merge(intervals)));
 	}
 
-	public static int[][] merge(int[][] intervals) {
+	private static int[][] merge(int[][] intervals) {
 
 		if(intervals.length < 2) return intervals;
 
 		List<int[]> result = new ArrayList<>();
-		Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
+		Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
 
 		int[] prev = intervals[0];
 
@@ -34,10 +42,6 @@ public class MergeIntervals {
 
 		result.add(prev);
 
-		int[][] res = new int[result.size()][2];
-		for(int i =0; i < result.size(); i++) {
-			res[i] = result.get(i);
-		}
-		return res;
+		return result.toArray(new int[0][]);
 	}
 }
