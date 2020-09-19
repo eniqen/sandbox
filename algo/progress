@@ -1,19 +1,20 @@
 Algo:
 Patterns:
-sliding-windows:
+    - sliding-windows:
 
-fast-slow-pointers:
-17.09.2020 - 143+-
+    - fast-slow-pointers:
+        17.09.2020 - 143+-
 
-intervals:
-18.09.2020 - 53+
+    - intervals:
+        18.09.2020 - 53+
+        20.09.2020 - 57+
 
-tree:
-two-pointers:
+    - tree:
+    - two-pointers:
 
 Tech Interview:
 11.08.2020 - Codility: Zalando+
 13.08.2020 - Codility: Avira+-
 
 System-design:
-Course 1,2,3 lectures
+    - Course 1,2,3,4 lectures
