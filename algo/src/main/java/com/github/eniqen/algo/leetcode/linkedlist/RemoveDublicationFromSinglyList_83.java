@@ -1,4 +1,6 @@
-package com.github.eniqen.algo.leetcode;
+package com.github.eniqen.algo.leetcode.linkedlist;
+
+import com.github.eniqen.algo.leetcode.ListNode;
 
 /**
  * @author Mikhail Nemenko {@literal <nemenkoma@gmail.com>}

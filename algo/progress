@@ -18,6 +18,8 @@ Patterns:
         07.10.2020 - 268 + easy, 287 + medium
         08.10.2020 - 41+ hard
         09.10.2020 - 448+ easy
+    - linkedlist
+        10.10.2020 - 206+ easy
 
     - tree:
     - two-pointers:
@@ -27,4 +29,5 @@ Tech Interview:
 13.08.2020 - Codility: Avira+-
 
 System-design:
-    - Course 1,2,3,4 lectures
+    - Architecture 1,2,3,4
+    - Architecture 5 13.10.2020
