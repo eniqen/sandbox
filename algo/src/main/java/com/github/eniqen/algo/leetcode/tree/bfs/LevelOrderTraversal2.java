@@ -1,4 +1,4 @@
-package com.github.eniqen.algo.leetcode.tree;
+package com.github.eniqen.algo.leetcode.tree.bfs;
 
 import com.github.eniqen.algo.leetcode.TreeNode;
 
