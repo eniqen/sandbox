@@ -1,7 +1,9 @@
 Algo:
 Patterns:
+    - arrays
+        29.11.2020 - 167+ easy
     - sliding-windows:
-
+        29.11.2020 - 3+ medium
     - fast-slow-pointers:
         17.09.2020 - 143+-
 
