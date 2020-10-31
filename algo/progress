@@ -1,11 +1,12 @@
 Algo:
 Patterns:
     - arrays
-        29.11.2020 - 167+ easy
-        30.11.2020 - 1629+ easy
-        31.11.2020 - 819+ easy
+        29.10.2020 - 167+ easy
+        30.10.2020 - 1629+ easy
+        31.10.2020 - 819+ easy
+        01.11.2020 - 200- medium
     - sliding-windows:
-        29.11.2020 - 3+ medium
+        29.10.2020 - 3+ medium
     - fast-slow-pointers:
         17.09.2020 - 143+-
 
@@ -22,20 +23,20 @@ Patterns:
         07.10.2020 - 268 + easy, 287 + medium
         08.10.2020 - 41+ hard
         09.10.2020 - 448+ easy
-        26.11.2020 - 1528+ easy
+        26.10.2020 - 1528+ easy
     - linkedlist
         10.10.2020 - 206+ easy
 
     - tree:
         - bfs:
-            18.11.2020 - 637+ easy
-            19.11.2020 - 102+ medium, 993+ easy
-            24.11.2020 - 107+ easy, 103+ medium, 111+ easy, 104+ easy, 116+ medium, 199+ medium
+            18.10.2020 - 637+ easy
+            19.10.2020 - 102+ medium, 993+ easy
+            24.10.2020 - 107+ easy, 103+ medium, 111+ easy, 104+ easy, 116+ medium, 199+ medium
          - dfs:
-            25.11.2020 - 112+ easy
-            26.11.2020 - 100+ easy
-            27.11.2020 - 129+ medium
-            27.11.2020 - 257+ easy, 1430+ medium
+            25.10.2020 - 112+ easy
+            26.10.2020 - 100+ easy
+            27.10.2020 - 129+ medium
+            27.10.2020 - 257+ easy, 1430+ medium
 
     - two-pointers:
 
