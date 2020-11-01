@@ -10,7 +10,7 @@ Patterns:
     - fast-slow-pointers:
         17.09.2020 - 143+-
     -heap:
-        01.11.2020 - 347+- medium
+        01.11.2020 - 347+- medium, 692+ medium
 
     - intervals:
         18.09.2020 - 53+
