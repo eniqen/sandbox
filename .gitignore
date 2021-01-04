@@ -21,3 +21,10 @@ project/boot/
 # Scala-IDE specific
 .scala_dependencies
 .worksheet
+.metals/
+.ammonite/
+metals.sbt
+metals/project/
+**/.bloop
+.metals/metals.h2.db
+.vscode/settings.json

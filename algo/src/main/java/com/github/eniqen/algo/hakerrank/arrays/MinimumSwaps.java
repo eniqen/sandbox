@@ -22,7 +22,7 @@ public class MinimumSwaps {
 			}
 		}
 
-		return 0;
+		return counter;
 	}
 
 	private static void swap(int[] arr, int from, int to) {
