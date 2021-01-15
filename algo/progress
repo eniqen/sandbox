@@ -12,6 +12,7 @@ Patterns:
     - sliding-windows:
         29.10.2020 - 3+ medium
         04.01.2021 - 933+ easy
+        16.01.2021 - 76+- hard
     - fast-slow-pointers:
         17.09.2020 - 143+-
     -heap:
