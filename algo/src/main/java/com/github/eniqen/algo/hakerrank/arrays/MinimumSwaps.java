@@ -7,6 +7,9 @@ public class MinimumSwaps {
 	public static void main(String[] args) {
 		final int [] arr = new int[] { 4, 3, 1, 2 };
 		System.out.println(minimunSwaps(arr));
+		Character x = 'x';
+		String y = "w";
+		System.out.println(y + x.toString());
 	}
 
 	private static int minimunSwaps(int[] arr) {
