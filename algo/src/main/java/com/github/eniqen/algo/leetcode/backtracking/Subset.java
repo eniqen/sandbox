@@ -10,6 +10,7 @@ public class Subset {
 	public static void main(String[] args) {
 		int[] arr = new int[] {1, 2, 3};
 		System.out.println(subset(arr));
+		System.out.println("NON REC" + solution3(arr));
 		gen(3,3);
 	}
 
@@ -46,5 +47,19 @@ public class Subset {
 			nums[idx] = i;
 			rec(n, m, idx + 1, nums);
 		}
+	}
+
+	static List<List<Integer>> solution3(int[] nums) {
+		List<List<Integer>> subsets = new ArrayList<>();
+		subsets.add(new ArrayList<>());
+		for(int num: nums) {
+			int n = subsets.size();
+			for(int i = 0; i < n; i++) {
+				List<Integer> temp = new ArrayList<>(subsets.get(i));
+				temp.add(num);
+				subsets.add(temp);
+			}
+		}
+		return subsets;
 	}
 }
