@@ -1,6 +1,7 @@
 package com.github.eniqen.algo.leetcode.backtracking;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -33,7 +34,19 @@ public class Subsets2 {
 
 	private static List<List<Integer>> solution2(int[] nums) {
 		List<List<Integer>> subsets = new ArrayList<>();
-
+		Arrays.sort(nums);
+		backtrack(0, nums, subsets, new ArrayList<>());
 		return subsets;
+	}
+
+	private static void backtrack(int idx, int[] nums, List<List<Integer>> acc, List<Integer> tmp) {
+		acc.add(new ArrayList<>(tmp));
+
+		for(int i = idx; i < nums.length; i ++) {
+			if(i > idx && nums[i] == nums[i - 1]) continue;
+			tmp.add(nums[i]);
+			backtrack(i + 1, nums, acc, tmp);
+			tmp.remove(tmp.size() - 1);
+		}
 	}
 }
