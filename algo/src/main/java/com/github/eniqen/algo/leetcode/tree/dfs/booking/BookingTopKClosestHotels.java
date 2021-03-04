@@ -99,13 +99,15 @@ public class BookingTopKClosestHotels {
 	) {
 		if(x >= map.length || y >= map[0].length || x < 0 || y < 0 || map[x][y] == EMPTY) return;
 		int price = map[x][y];
-		if(price > ROAD &&  price >= price_range[0] && price <= price_range[1]) {
-			HotelInfo h = new BookingTopKClosestHotels.HotelInfo(x, y, price, steps);
-			if(!hotels.containsKey(h.coordinates)) {
-				hotels.put(h.coordinates, h);
-			} else {
-				HotelInfo prev = hotels.get(h.coordinates);
-				hotels.put(h.coordinates, prev.steps < h.steps ? prev : h);
+		if(price > ROAD) {
+			if(price >= price_range[0] && price <= price_range[1]) {
+				HotelInfo h = new BookingTopKClosestHotels.HotelInfo(x, y, price, steps);
+				if(!hotels.containsKey(h.coordinates)) {
+					hotels.put(h.coordinates, h);
+				} else {
+					HotelInfo prev = hotels.get(h.coordinates);
+					hotels.put(h.coordinates, prev.steps < h.steps ? prev : h);
+				}
 			}
 			return;
 		}
